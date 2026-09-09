@@ -1,5 +1,7 @@
 <Solution>
   <Project Path="src/UnifiedPos/UnifiedPos.csproj" />
   <Project Path="tests/UnifiedPos.Tests/UnifiedPos.Tests.csproj" />
-  <Project Path="examples/UnifiedPos.Sample/UnifiedPos.Sample.csproj" />
+  <Project Path="examples/EposSample/EposSample.csproj" />
+  <Project Path="examples/Tcp9100Sample/Tcp9100Sample.csproj" />
+  <Project Path="examples/WindowsQueueSample/WindowsQueueSample.csproj" />
 </Solution>
