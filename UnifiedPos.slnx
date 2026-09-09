@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src/UnifiedPos/UnifiedPos.csproj" />
+  <Project Path="tests/UnifiedPos.Tests/UnifiedPos.Tests.csproj" />
+  <Project Path="examples/UnifiedPos.Sample/UnifiedPos.Sample.csproj" />
+</Solution>

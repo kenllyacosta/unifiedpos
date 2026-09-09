@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-pack:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - run: dotnet restore UnifiedPos.slnx
+      - run: dotnet build UnifiedPos.slnx --configuration Release --no-restore
+      - run: dotnet run --project tests/UnifiedPos.Tests --configuration Release --no-build
+      - run: dotnet pack src/UnifiedPos/UnifiedPos.csproj --configuration Release --no-build --output artifacts
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nuget-packages
+          path: artifacts/*.*nupkg
+

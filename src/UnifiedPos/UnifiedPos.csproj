@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <RootNamespace>UnifiedPos</RootNamespace>
+    <AssemblyName>UnifiedPos</AssemblyName>
+    <Version>0.1.0</Version>
+    <PackageId>UnifiedPos</PackageId>
+    <Title>UnifiedPos</Title>
+    <Description>Unified .NET API for Epson ePOS, ESC/POS TCP 9100 and Windows printer queues.</Description>
+    <Authors>Kenlly Acosta</Authors>
+    <PackageTags>escpos;epos;thermal-printer;receipt;pos;epson</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/kenllyacosta/unifiedpos</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+</Project>

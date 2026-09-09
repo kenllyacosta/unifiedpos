@@ -1,0 +1,29 @@
+name: Publish NuGet
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    environment: nuget
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Resolve version from release tag
+        shell: pwsh
+        run: |
+          $version = "${{ github.event.release.tag_name }}" -replace '^v', ''
+          "PACKAGE_VERSION=$version" >> $env:GITHUB_ENV
+      - run: dotnet restore src/UnifiedPos/UnifiedPos.csproj
+      - run: dotnet build src/UnifiedPos/UnifiedPos.csproj --configuration Release --no-restore
+      - run: dotnet pack src/UnifiedPos/UnifiedPos.csproj --configuration Release --no-build --output artifacts -p:PackageVersion=${{ env.PACKAGE_VERSION }}
+      - name: Publish to NuGet.org
+        run: dotnet nuget push "artifacts/*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+
