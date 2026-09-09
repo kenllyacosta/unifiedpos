@@ -3,7 +3,7 @@
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <RootNamespace>UnifiedPos</RootNamespace>
     <AssemblyName>UnifiedPos</AssemblyName>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <PackageId>UnifiedPos</PackageId>
     <Title>UnifiedPos</Title>
     <Description>Unified .NET API for Epson ePOS, ESC/POS TCP 9100 and Windows printer queues.</Description>
